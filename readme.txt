@@ -1,0 +1,4 @@
+ 
+Synchronizing Threads
+
+ This program will grep for a fixed word from all of the lines within a given list of files and print the number of occurrences of the word.  The first argument to the program is the word to search (grep) for.  All other arguments represent a list of files to be searched.  For each file, a separate thread (producer) will be created to read each line from the file and place each line in the circular buffer.  A total of 2 consumer threads will be created to read one line at a time from the buffer, search the line for the fixed word, and increment a shared counter if it has been found.  After all files have been fully read through and the circular buffer is empty, the main thread prints the final count of occurrences of the given word and then the program terminates.
